@@ -13,6 +13,7 @@
           inherit (pkgs)
             amfora asuka av-98 castor kristall molly-brown ncgopher;
           gacme = pkgs.callPackage ./gacme.nix { };
+          lagrange = pkgs.callPackage ./lagrange.nix { };
         });
 
       nixosModules = {
