@@ -12,6 +12,7 @@
         in {
           inherit (pkgs)
             amfora asuka av-98 castor kristall molly-brown ncgopher;
+          inherit (pkgs.haskellPackages) diohsc;
           gacme = pkgs.callPackage ./gacme.nix { };
           lagrange = pkgs.callPackage ./lagrange.nix { };
         });
