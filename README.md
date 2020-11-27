@@ -1,7 +1,5 @@
 # A survey of software related to the Gemini protocol
 
-> This repository can be moved to nix-community when they migrate away from microsoft code hosting.
-
 This is a collection of Nix packages, either picked from the main Nixpkgs repository or locally hosted. Please submit a patch if you wish to add packages in either form.
 
 Requires Nix with flakes supported and enabled.
@@ -10,7 +8,7 @@ Requires Nix with flakes supported and enabled.
 
 To add this collection to your local Nix flake registry:
 ```
-nix registry add gemini git+https://git.sr.ht/~ehmry/gemini-flake
+nix registry add gemini github:nix-community/flake-gemini
 ```
 
 To list the contents of this collection:
