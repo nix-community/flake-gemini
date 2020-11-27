@@ -11,9 +11,8 @@
         let pkgs = nixpkgs.legacyPackages.${system};
         in {
           inherit (pkgs)
-            amfora asuka av-98 castor kristall molly-brown ncgopher;
+            amfora asuka av-98 bombadillo castor kristall molly-brown ncgopher;
           inherit (pkgs.haskellPackages) diohsc;
-          bombadillo = pkgs.callPackage ./bombadillo { };
           duckling-proxy = pkgs.callPackage ./duckling-proxy { };
           gacme = pkgs.callPackage ./gacme { };
           lagrange = pkgs.callPackage ./lagrange { };
