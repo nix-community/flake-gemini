@@ -16,6 +16,7 @@
           inherit (pkgs.haskellPackages) diohsc;
           duckling-proxy = pkgs.callPackage ./duckling-proxy { };
           gacme = pkgs.callPackage ./gacme { };
+          html2gmi = pkgs.callPackage ./html2gmi { };
         });
 
       nixosModules = {
