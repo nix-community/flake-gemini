@@ -7,16 +7,20 @@
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
     in {
 
+      overlay = final: prev:
+        with prev; {
+          duckling-proxy = callPackage ./duckling-proxy { };
+          gacme = callPackage ./gacme { };
+          html2gmi = callPackage ./html2gmi { };
+        };
+
       packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
+        let pkgs = nixpkgs.legacyPackages.${system}.extend self.overlay;
         in {
           inherit (pkgs)
-            amfora asuka av-98 bombadillo castor kristall lagrange molly-brown
-            ncgopher;
+            amfora asuka av-98 bombadillo castor duckling-proxy gacme html2gmi
+            kristall lagrange molly-brown ncgopher;
           inherit (pkgs.haskellPackages) diohsc;
-          duckling-proxy = pkgs.callPackage ./duckling-proxy { };
-          gacme = pkgs.callPackage ./gacme { };
-          html2gmi = pkgs.callPackage ./html2gmi { };
         });
 
       nixosModules = {
