@@ -12,6 +12,7 @@
           duckling-proxy = callPackage ./duckling-proxy { };
           gacme = callPackage ./gacme { };
           html2gmi = callPackage ./html2gmi { };
+          kineto = callPackage ./kineto { };
         };
 
       packages = forAllSystems (system:
@@ -19,12 +20,12 @@
         in {
           inherit (pkgs)
             amfora asuka av-98 bombadillo castor duckling-proxy gacme html2gmi
-            kristall lagrange molly-brown ncgopher;
-          inherit (pkgs.haskellPackages) diohsc;
+            kineto kristall lagrange molly-brown ncgopher;
         });
 
       nixosModules = {
         duckling-proxy = import ./duckling-proxy/nixos-module.nix self;
+        kineto = import ./kineto/nixos-module.nix self;
         molly-brown = import
           "${nixpkgs}/nixos/modules/services/web-servers/molly-brown.nix";
       };
