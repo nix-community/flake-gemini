@@ -11,6 +11,7 @@
         with prev; {
           duckling-proxy = callPackage ./duckling-proxy { };
           gacme = callPackage ./gacme { };
+          gemget = callPackage ./gemget { };
           html2gmi = callPackage ./html2gmi { };
           kineto = callPackage ./kineto { };
         };
@@ -19,8 +20,8 @@
         let pkgs = nixpkgs.legacyPackages.${system}.extend self.overlay;
         in {
           inherit (pkgs)
-            amfora asuka av-98 bombadillo castor duckling-proxy gacme html2gmi
-            kineto kristall lagrange molly-brown ncgopher;
+            amfora asuka av-98 bombadillo castor duckling-proxy gacme gemget
+            html2gmi kineto kristall lagrange molly-brown ncgopher;
         });
 
       nixosModules = {
