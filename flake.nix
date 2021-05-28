@@ -20,8 +20,9 @@
         let pkgs = nixpkgs.legacyPackages.${system}.extend self.overlay;
         in {
           inherit (pkgs)
-            amfora asuka av-98 bombadillo castor duckling-proxy gacme gemget
-            html2gmi kineto kristall lagrange molly-brown ncgopher;
+            agate amfora asuka av-98 bombadillo castor duckling-proxy gacme
+            gemget gmnisrv html2gmi kineto kristall lagrange molly-brown
+            ncgopher;
         });
 
       nixosModules = {
