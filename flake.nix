@@ -11,9 +11,7 @@
 
       overlay = final: prev:
         with prev; {
-          duckling-proxy = callPackage ./duckling-proxy { };
           gacme = callPackage ./gacme { };
-          gemget = callPackage ./gemget { };
           html2gmi = callPackage ./html2gmi { };
           kineto = callPackage ./kineto { };
         };
@@ -23,8 +21,8 @@
         in {
           inherit (pkgs)
             agate amfora asuka av-98 bombadillo castor duckling-proxy gacme
-            gemget gmnisrv html2gmi kineto kristall lagrange molly-brown
-            ncgopher;
+            gemget gmid gmni gmnisrv gmnitohtml html2gmi md2gemini kiln kineto
+            kristall lagrange molly-brown ncgopher telescope;
         });
 
       nixosModules = {
