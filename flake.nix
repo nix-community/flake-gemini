@@ -1,6 +1,8 @@
 {
   description = "A survey of software related to the Gemini protocol";
 
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-21.11";
+
   outputs = { self, nixpkgs }:
     let
       systems = [ "aarch64-linux" "x86_64-linux" ];
