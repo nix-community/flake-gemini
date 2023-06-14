@@ -31,6 +31,13 @@ in {
       description = "Gemini domain to serve via HTTP.";
     };
 
+    extraArgs = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
+      example =  lib.literalExample ''[ "-s ${./style.css}" ]'';
+      description = "Extra command line arguments.";
+    };
+
   };
 
   config = mkIf cfg.enable {
@@ -42,7 +49,7 @@ in {
       serviceConfig = {
         DynamicUser = true;
         ExecStart = let
-          flags = [
+          flags = cfg.extraArgs ++ [
             "-b ${cfg.address}:${toString cfg.port}"
             cfg.geminiDomain
           ];
