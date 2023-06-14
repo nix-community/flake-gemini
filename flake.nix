@@ -1,7 +1,7 @@
 {
   description = "A survey of software related to the Gemini protocol";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-21.11";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
 
   outputs = { self, nixpkgs }:
     let
@@ -9,7 +9,7 @@
       forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
     in {
 
-      overlay = final: prev:
+      overlays.default = final: prev:
         with prev; {
           gacme = callPackage ./gacme { };
           html2gmi = callPackage ./html2gmi { };
@@ -17,7 +17,7 @@
         };
 
       packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system}.extend self.overlay;
+        let pkgs = nixpkgs.legacyPackages.${system}.extend self.overlays.default;
         in {
           inherit (pkgs)
             agate amfora asuka av-98 bombadillo castor duckling-proxy gacme

@@ -10,7 +10,7 @@ in {
     package = mkOption {
       description = "Which package this service should use.";
       type = types.package;
-      default = let pkgs' = pkgs.extend flake.overlay; in pkgs'.kineto;
+      default = let pkgs' = pkgs.extend flake.overlays.default; in pkgs'.kineto;
     };
 
     address = mkOption {
